@@ -1,3 +1,5 @@
+import '../styles/FormInput.css'
+
 interface FormInputProps {
   placeholder?: string;
   name: string;
@@ -15,8 +17,16 @@ export default function FormInput({
 }: FormInputProps) {
   return (
     <div className="input-container">
-      <label htmlFor={name}>{label}</label>
-      <input type={type} name={name} id={id} placeholder={placeholder} />
+      <label className="input-container__label" htmlFor={name}>
+        {label}
+      </label>
+      <input
+        className="input-container__input"
+        type={type}
+        name={name}
+        id={id}
+        placeholder={placeholder}
+      />
     </div>
   );
 }

@@ -1,0 +1,15 @@
+.input-container {
+  display: flex;
+  align-items: center;
+}
+.input-container__label {
+  flex: 0 0 10rem;
+}
+.input-container__input {
+  padding: 1rem;
+  margin-left: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  outline: none;
+  flex: 1;
+}
