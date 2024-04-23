@@ -1,0 +1,56 @@
+.app {
+  display: flex;
+  gap: 12rem;
+}
+
+/* CV */
+.cv-container {
+  flex: 1 0 10rem;
+  padding: 1rem;
+  background-color: #fffae3;
+  color: #1a172f;
+  border-radius: 1rem;
+}
+.cv-container__section {
+  padding: 2rem;
+  border-top: 2px solid #1a172f;
+}
+.cv-container__section:first-of-type {
+  padding: 2rem;
+  border-top: none;
+}
+
+/* General */
+.genaral-info__name {
+  text-align: center;
+  margin: 0.5rem 0;
+}
+.general-info__contact {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.general-info__contact span {
+  font-weight: bold;
+}
+.genaral-info__contact--email,
+.general-info__contact--phone {
+  margin: 0;
+}
+
+/* Education */
+.education-info__container {
+  display: grid;
+  grid-template-columns: repeat(2, 20rem);
+}
+.education-info__title {
+  margin: .5rem;
+}
+.education-info__course, .education-info__school {
+  margin: 1rem;
+}
+
+/* Forms */
+.forms {
+  flex: 0 0 1;
+}
