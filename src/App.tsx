@@ -102,6 +102,7 @@ export default function App() {
               </div>
             </div>
           </section>
+          <input className='submit-cv' type="button" value="Submit" />
         </aside>
       </main>
     </>

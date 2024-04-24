@@ -6,6 +6,7 @@ interface FormInputProps {
   id: string;
   type: string;
   label?: string;
+  value?: string;
 }
 
 export default function FormInput({
@@ -14,6 +15,7 @@ export default function FormInput({
   id,
   type,
   label,
+  value
 }: FormInputProps) {
   return (
     <div className="input-container">
@@ -26,6 +28,7 @@ export default function FormInput({
         name={name}
         id={id}
         placeholder={placeholder}
+        value={value}
       />
     </div>
   );

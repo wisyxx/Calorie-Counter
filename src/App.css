@@ -29,6 +29,22 @@
 .cv-container__entries span {
   font-weight: bold;
 }
+.submit-cv {
+  background-color: #1a172f;
+  color: #fffae3;
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem;
+  font-weight: bold;
+  transition: all 150ms;
+}
+.submit-cv:hover {
+  background-color: #3c3664;
+  transform: scale(1.05);
+}
+.submit-cv:active {
+  background-color: #534b84;
+}
 
 /* General */
 .genaral-info__name {
@@ -75,7 +91,6 @@
   align-items: center;
   justify-content: center;
 }
-
 
 /* Forms */
 .forms {
