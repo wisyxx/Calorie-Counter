@@ -19,6 +19,15 @@
   padding: 2rem;
   border-top: none;
 }
+.cv-container__entries {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.cv-container__entries span {
+  font-weight: bold;
+}
 
 /* General */
 .genaral-info__name {
@@ -42,13 +51,30 @@
 .education-info__container {
   display: grid;
   grid-template-columns: repeat(2, 20rem);
+  place-items: center;
 }
-.education-info__title {
-  margin: .5rem;
+.education-info__title,
+.experience__title {
+  margin: 0.5rem;
 }
-.education-info__course, .education-info__school {
+.education-info__course,
+.education-info__school {
   margin: 1rem;
 }
+
+/* Experience */
+.experience__company {
+  text-align: center;
+  margin: 0;
+}
+.experience__container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
 
 /* Forms */
 .forms {
