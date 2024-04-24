@@ -10,6 +10,7 @@
   background-color: #fffae3;
   color: #1a172f;
   border-radius: 1rem;
+  height: min-content;
 }
 .cv-container__section {
   padding: 2rem;

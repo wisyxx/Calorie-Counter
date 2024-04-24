@@ -1,5 +1,6 @@
 import GeneralInfoForm from './components/GeneralInfoForm';
 import EducationForm from './components/EducationForm';
+import ExperienceForm from './components/ExperienceForm';
 import './App.css';
 
 export default function App() {
@@ -11,6 +12,7 @@ export default function App() {
           {/* TO-DO: Desplegalbe forms */}
           <GeneralInfoForm title="General information" />
           <EducationForm title="Education" />
+          <ExperienceForm title="Experience" />
         </section>
 
         <aside className="cv-container">

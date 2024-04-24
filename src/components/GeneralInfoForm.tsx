@@ -27,7 +27,7 @@ export default function GeneralInfoForm({ title }: FormProps) {
         placeholder="example@gmail.com"
         name="email"
         id="email"
-        type="emai"
+        type="email"
         label="Email"
       />
       <FormInput
