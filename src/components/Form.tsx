@@ -49,8 +49,11 @@ export const Form = () => {
         </label>
         <input
           className=" border border-slate-300 p-2 rounded-lg"
-          placeholder="Ex. Lunch 🥗, Apple 🍎, Lemonade 🍋, 
-          Steak filet 🥩| 5km run 🏃🏻‍♂️, Gym 🏋🏻..."
+          placeholder={`${
+            activity.category === 1
+              ? 'Ex. Lunch🥗, Apple🍎, Lemonade🍋'
+              : 'Steak filet🥩| 5km run🏃🏻‍♂️, Gym🏋🏻'
+          }...`}
           type="text"
           id="name"
           name="name"
@@ -77,7 +80,7 @@ export const Form = () => {
         type="submit"
         className=" transition-all duration-[250ms] bg-gray-800 hover:bg-gray-900 w-full p-2 
         font-bold uppercase text-white cursor-pointer"
-        value={'Save food | Save activity'}
+        value={activity.category === 1 ? 'Save food' : 'Save activity'}
       />
     </form>
   );
