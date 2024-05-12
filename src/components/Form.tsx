@@ -22,6 +22,12 @@ export const Form = () => {
     });
   };
 
+  const isValidActivity = () => {
+    const { name, calories } = activity;
+
+    return name.trim() !== '' && calories > 0;
+  };
+
   return (
     <form className=" space-y-5 bg-white shadow p-10 rounded-lg">
       <div className="grid grid-cols-1 gap-3">
@@ -45,14 +51,14 @@ export const Form = () => {
 
       <div className="grid grid-cols-1 gap-3">
         <label htmlFor="name" className=" font-bold">
-          Activity:
+          {activity.category === 1 ? 'Food name' : 'Activity'}:
         </label>
         <input
           className=" border border-slate-300 p-2 rounded-lg"
           placeholder={`${
             activity.category === 1
-              ? 'Ex. Lunch🥗, Apple🍎, Lemonade🍋'
-              : 'Steak filet🥩| 5km run🏃🏻‍♂️, Gym🏋🏻'
+              ? 'Ex. Lunch🥗, Apple🍎, Steak filet🥩'
+              : '5km Run🏃🏻‍♂️, Gym🏋🏻'
           }...`}
           type="text"
           id="name"
@@ -78,8 +84,10 @@ export const Form = () => {
 
       <input
         type="submit"
-        className=" transition-all duration-[250ms] bg-gray-800 hover:bg-gray-900 w-full p-2 
-        font-bold uppercase text-white cursor-pointer"
+        disabled={!isValidActivity()} // If true disabled false and vice-versa
+        className=" transition-all duration-[250ms] bg-gray-800 hover:bg-gray-900 
+        w-full p-2 font-bold uppercase text-white cursor-pointer disabled:opacity-50 
+        disabled:hover:bg-slate-800"
         value={activity.category === 1 ? 'Save food' : 'Save activity'}
       />
     </form>
