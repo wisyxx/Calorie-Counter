@@ -24,5 +24,5 @@ export const activityReducer = (
     };
   }
 
-  return state;
+  return state; // always return state!
 };

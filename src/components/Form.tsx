@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { categories } from '../data/categories';
 import type { ChangeEvent, FormEvent, Dispatch } from 'react';
 import type { ActivityActions } from '../reducers/activityReducer';
@@ -9,11 +10,14 @@ type FormProps = {
 };
 
 export const Form = ({ dispatch }: FormProps) => {
-  const [activity, setActivity] = useState<Activity>({
+  const INITIAL_STATE: Activity = {
+    id: uuidv4(),
     category: 1,
     name: '',
     calories: 0,
-  });
+  };
+
+  const [activity, setActivity] = useState<Activity>(INITIAL_STATE);
 
   const handleChange = (
     e: ChangeEvent<HTMLSelectElement | HTMLInputElement>
@@ -41,6 +45,12 @@ export const Form = ({ dispatch }: FormProps) => {
       payload: {
         newActivity: activity,
       },
+    });
+
+    // After submit reset form values
+    setActivity({
+      ...INITIAL_STATE,
+      id: uuidv4(), // Change ID
     });
   };
 
