@@ -1,21 +1,35 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { categories } from '../data/categories';
 import type { ChangeEvent, FormEvent, Dispatch } from 'react';
-import type { ActivityActions } from '../reducers/activityReducer';
+import type {
+  ActivityActions,
+  ActivityState,
+} from '../reducers/activityReducer';
 import type { Activity } from '../types';
 
 type FormProps = {
   dispatch: Dispatch<ActivityActions>;
+  state: ActivityState;
 };
 
-export const Form = ({ dispatch }: FormProps) => {
+export const Form = ({ dispatch, state }: FormProps) => {
   const INITIAL_STATE: Activity = {
     id: uuidv4(),
     category: 1,
     name: '',
     calories: 0,
   };
+
+  useEffect(() => {
+    if (state.activeId) {
+      const selectedActivityData = state.activities.filter(
+        (stateActivity) => stateActivity.id === state.activeId
+      )[0];
+
+      setActivity(selectedActivityData);
+    }
+  }, [state.activeId]);
 
   const [activity, setActivity] = useState<Activity>(INITIAL_STATE);
 
@@ -54,6 +68,9 @@ export const Form = ({ dispatch }: FormProps) => {
     });
   };
 
+  /* TODO: If no value is writen by the user in "Calories (kcal)" it
+   *  must show the place holder
+   */
   return (
     <form
       onSubmit={handleSubmit}
