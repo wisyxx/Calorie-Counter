@@ -10,8 +10,13 @@ export type ActivityState = {
   activeId: Activity['id'];
 };
 
+const localStorageActivities = (): Activity[] => {
+  const activities = localStorage.getItem('activities');
+  return activities ? JSON.parse(activities) : [];
+};
+
 export const initialState: ActivityState = {
-  activities: [],
+  activities: localStorageActivities(),
   activeId: '',
 };
 
@@ -38,6 +43,11 @@ export const activityReducer = (
   }
 
   if (action.type === 'set-activeId') {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth',
+    });
+
     return {
       ...state,
       activeId: action.payload.id,
