@@ -5,6 +5,8 @@ import {
   ActivityState,
   initialState,
 } from '../reducers/activityReducer';
+import { Activity } from '../types';
+import { categories } from '../data/categories';
 
 type ActivityProviderProps = {
   children: ReactNode;
@@ -15,6 +17,7 @@ type ActivityContextProps = {
   caloriesConsumed: number;
   caloriesBurned: number;
   totalCalories: number;
+  categoryName: (category: Activity['category']) => string[];
 };
 
 export const ActivityContext = createContext<ActivityContextProps>(null!);
@@ -22,6 +25,7 @@ export const ActivityContext = createContext<ActivityContextProps>(null!);
 export const ActivityProvider = ({ children }: ActivityProviderProps) => {
   const [state, dispatch] = useReducer(activityReducer, initialState);
 
+  // CalorieTracker.tsx
   const caloriesConsumed = useMemo(
     () =>
       state.activities.reduce(
@@ -45,6 +49,13 @@ export const ActivityProvider = ({ children }: ActivityProviderProps) => {
     [state.activities]
   );
 
+  // ActivityList.tsx
+  const categoryName = useMemo(
+    () => (category: Activity['category']) =>
+      categories.map((cat) => (cat.id === category ? cat.name : '')),
+    [state.activities]
+  );
+
   return (
     <ActivityContext.Provider
       value={{
@@ -53,6 +64,7 @@ export const ActivityProvider = ({ children }: ActivityProviderProps) => {
         caloriesConsumed,
         caloriesBurned,
         totalCalories,
+        categoryName,
       }}
     >
       {children}

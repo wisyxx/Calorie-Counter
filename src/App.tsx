@@ -53,7 +53,7 @@ export const App = () => {
       </section>
 
       <section className=" p-10 mx-auto max-w-4xl">
-        <ActivityList dispatch={dispatch} activities={state.activities} />
+        <ActivityList />
       </section>
     </>
   );
